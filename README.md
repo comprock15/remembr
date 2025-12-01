@@ -1,4 +1,4 @@
-# ReMEmbR++
+# LVMem
 
 ## Setup
 
@@ -54,7 +54,7 @@ conda activate remembr
 ollama pull llama3.1:8b
 ```
 
-## Launch HTTPS-wrapper for RemembR
+## Launch HTTPS-wrapper
 
 ```
 bash docker/into.sh
@@ -78,4 +78,4 @@ conda activate remembr
 python scripts/remembr_api.py 
 ```
 
-Now you can send requests to ReMEmbR!
+Now you can send requests to ReMEmbR module!

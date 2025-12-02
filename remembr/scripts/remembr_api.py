@@ -39,7 +39,7 @@ class ProcessRunner:
                 if video_path and os.path.exists(video_path):
                     logger.info(f"Launching {PARSE_SCRIPT_PATH} for {video_path}")
                     result1 = subprocess.run([
-                        "/opt/conda/envs/coda/bin/python", PARSE_SCRIPT_PATH, 
+                        "/opt/conda/envs/remembr/bin/python", PARSE_SCRIPT_PATH, 
                         "--input", video_path,
                         "--output", "tmp/data/parsed_data"
                     ], capture_output=True, text=True, cwd=self.base_path)
@@ -54,7 +54,7 @@ class ProcessRunner:
                 # 2. Препроцессинг
                 logger.info(f"Launching {PREPROCESS_SCRIPT_PATH}")
                 result2 = subprocess.run([
-                    "/opt/conda/envs/coda/bin/python", PREPROCESS_SCRIPT_PATH,
+                    "/opt/conda/envs/remembr/bin/python", PREPROCESS_SCRIPT_PATH,
                     "--input", "tmp/data/parsed_data",
                     "--output", "tmp/data/preprocessed_data"
                 ], capture_output=True, text=True, cwd=self.base_path)

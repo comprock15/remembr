@@ -7,16 +7,6 @@ from os.path import join
 import numpy as np
 from scipy.spatial.transform import Rotation as R
 
-# import rospy
-from cv_bridge import CvBridge
-import cv2
-import tf2_ros
-import tf.transformations as tf_trans
-
-from sensor_msgs.msg import PointCloud2, Image
-from visualization_msgs.msg import  Marker, MarkerArray
-from geometry_msgs.msg import PoseStamped, Point
-
 import pickle as pkl
 from tqdm import tqdm 
 
@@ -24,7 +14,9 @@ import sys
 import termios
 import tty
 
-parser = argparse.ArgumentParser(description="CODa rviz visualizer")
+import cv2
+
+parser = argparse.ArgumentParser(description="Video preprocessor")
 
 parser.add_argument('--input', required=True, help='Путь к кадрам видео')
 parser.add_argument('--output', required=True, help='Путь для сохранения pkl')
@@ -50,12 +42,7 @@ def get_key():
     return ch
 
 def vis_annos_rviz(args):
-    # indir = os.getenv(ENV_CODA_ROOT_DIR)
-    # assert indir is not None, f'Directory for CODa cannot be found, set {ENV_CODA_ROOT_DIR}'
-    # sequence, start_frame, color_type, log_dir = args.sequence, int(args.start_frame), args.color_type, \
-    #     args.log
     namespace = args.namespace
-    # rospy.init_node('CODa_publisher')
 
     IMAGE_PATH = args.input
     OUTPUT_DIR = args.output

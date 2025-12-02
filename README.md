@@ -28,13 +28,13 @@ bash launch_milvus_container.sh start
 ```
 
 4. Run the container
-
 ```
 bash docker/start.sh
 ```
 
 5. Download llama3.1:8b
 ```
+bash docker/sinto.sh
 conda activate remembr
 ollama pull llama3.1:8b
 ```
